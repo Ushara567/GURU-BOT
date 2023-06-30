@@ -1,6 +1,6 @@
 
 import fg from 'api-dylux'
-import { youtubedl, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper'
+import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
 let limit = 350
 let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) => {
 	if (!args || !args[0]) throw `✳️ Example :\n${usedPrefix + command} https://youtu.be/YzkTFFwxtXI`
@@ -10,7 +10,7 @@ let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) =
 	try {
 		let q = args[1] || '360p'
 		let v = args[0]
-		const yt = await youtubedl(v).catch(async () => await youtubedlv2(v)).catch(async () => await youtubedlv3(v))
+		const yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
 		const dl_url = await yt.video[q].download()
 		const title = await yt.title
 		const size = await yt.video[q].fileSizeH 

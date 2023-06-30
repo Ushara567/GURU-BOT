@@ -1,4 +1,4 @@
-import { wallpaper, wallpaperv2 } from '@bochilteam/scraper'
+import { wallpaper } from '@bochilteam/scraper'
 let handler = async (m, { conn, text, usedPrefix, command }) => {
 if (!text) throw `*EXAMPLE USAGE ${usedPrefix + command} Minecraft*`
 const res = await (/2/.test(command) ? wallpaperv2 : wallpaper)(text)

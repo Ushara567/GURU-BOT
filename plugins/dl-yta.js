@@ -1,4 +1,4 @@
-import { youtubedl, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper'
+import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
 import fetch from 'node-fetch'
 let handler = async (m, { conn, args }) => {
 if (!args[0]) throw '*[❗𝐈𝐍𝐅𝐎❗] SEARCH YOUTUBE / YOUTUBE 𝙻𝙸𝙽𝙺*'
@@ -6,7 +6,7 @@ await m.reply(`*_⏳processing ᴀᴜᴅɪᴏ...⏳_*\n\n*◉  command #playdoc 
 try {
 let q = '128kbps'
 let v = args[0]
-const yt = await youtubedl(v).catch(async _ => await youtubedlv2(v)).catch(async _ => await youtubedlv3(v))
+const yt = await youtubedl(v).catch(async _ => await youtubedlv2(v))
 const dl_url = await yt.audio[q].download()
 const ttl = await yt.title
 const size = await yt.audio[q].fileSizeH
